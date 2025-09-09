@@ -8,7 +8,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 # Фикстура инициализации драйвера Firefox
 @pytest.fixture
-def browser():
+def driver():
     driver = webdriver.Firefox()
     driver.maximize_window() # Раскрываем на весь экран
     

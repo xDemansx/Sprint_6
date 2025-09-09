@@ -3,11 +3,12 @@ from selenium.webdriver.common.by import By
 import sys 
 sys.path.append('..')
 
+
 # Локаторы ЗАКАЗА!
 class OrderLocators: 
     # Кнопка "Заказать"
-    order_button_header = (By.XPATH, '//button[text()="Заказать"]') # Кнопка "Заказать" вверху страницы
-    order_button_centre = (By.XPATH, '(//button[text()="Заказать"])[2]') # Кнопка "Заказать" внизу страницы
+    order_button_header = (By.XPATH, '//div[@class = "Header_Nav__AGCXC"]/button[text() = "Заказать"]') # Кнопка "Заказать" вверху страницы
+    order_button_centre = (By.XPATH, '//div[@class = "Home_FinishButton__1_cWm"]/button[text() = "Заказать"]') # Кнопка "Заказать" внизу страницы
 
     # Данные пользователя - Окно "Для кого самокат"
     name = (By.XPATH, '//input[@placeholder="* Имя"]')
@@ -16,12 +17,14 @@ class OrderLocators:
     metro = (By.XPATH, '//input[@placeholder="* Станция метро"]')
     list_station = (By.XPATH, "//li[@data-index='0']") 
     number = (By.XPATH, '//input[@placeholder="* Телефон: на него позвонит курьер"]')
-    next_button = (By.XPATH, '//button[text()="Далее"]')
+    next_button = (By.XPATH, '//button[contains(text(), "Далее")]')
 
     # Данные аренды - Окно "Про аренду"
     delivery_date = (By.XPATH, '//input[@placeholder="* Когда привезти самокат"]')
-    renta_date = (By.XPATH, '//div[text()="* Срок аренды"]')
-    select_renta_date = (By.XPATH, '//div[text()="{}"]')
+    renta_date = (By.XPATH, '//span[@class = "Dropdown-arrow"]') # локатор поля Срок аренды
+    renta_long = [(By.XPATH, '//div[text()="пятеро суток"]'), # локаторы вариантов Срока аренды
+                (By.XPATH, '//div[text()="сутки"]')]
+
     colour_black = (By.XPATH, '//label[@for="black"]')
     colour_grey = (By.XPATH, '//label[@for="grey"]')
     comments = (By.XPATH, '//input[@placeholder="Комментарий для курьера"]')
